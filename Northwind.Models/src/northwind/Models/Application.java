@@ -11,11 +11,11 @@ public class Application {
 	public static void main(String[] args) {         
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Northwind.Models");
 		EntityManager em = emf.createEntityManager();         
-		String str = "SELECT s FROM Suppliers s";         
-		TypedQuery<Suppliers> query = em.createQuery(str, Suppliers.class);
-		List<Suppliers> suppliers = query.getResultList(); 
-		for (Suppliers s : suppliers) {             
-			System.out.println("nom = "+ s.getLastName());         
+		@SuppressWarnings("unchecked")
+		TypedQuery<Customers> query = (TypedQuery<Customers>) em.createNamedQuery("Customers.findAll");
+		List<Customers> customers = query.getResultList(); 
+		for (Customers c : customers) {             
+			System.out.println("nom = "+ c.getEmailAddress());         
 		} 
 		em.close(); 
 		emf.close();    

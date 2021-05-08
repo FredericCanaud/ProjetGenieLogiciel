@@ -5,6 +5,7 @@ import org.eclipse.swt.widgets.Shell;
 public class RunController
 {
 	public Object m_ViewModel;
+	public Object m_ViewModel2;
 	public Class<?> m_Class;
 	public Object[] m_Args;
 	

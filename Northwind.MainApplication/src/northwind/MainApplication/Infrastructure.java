@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import northwind.Controllers.ActionResult;
 import northwind.Controllers.Controller;
-import northwind.Controllers.ListSuppliersController;
+import northwind.Controllers.ListCustomersController;
 import northwind.Views.RunController;
 
 public class Infrastructure
@@ -30,7 +30,7 @@ public class Infrastructure
 		m_Shell.open();
 		m_Shell.setVisible(false);
 		
-		runController(ListSuppliersController.class, 1);
+		runController(ListCustomersController.class, 0);
 	}
 	
 	public void runController(Class<?> c, Object ... args)

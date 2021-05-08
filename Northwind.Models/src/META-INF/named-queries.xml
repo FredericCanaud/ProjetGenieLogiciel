@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+	http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+	<named-query name="Customers.findAll">
+		<query>SELECT c FROM Customers c</query>
+	</named-query>
+	<named-query name="Orders.findByCustomer">
+		<query>SELECT o FROM Orders o WHERE o.customers.id = :id</query>
+	</named-query>
+	<named-query name="OrderDetails.findByOrder">
+		<query>SELECT o FROM OrderDetails o WHERE o.orders.id = :id ORDER BY o.products.productName</query>
+	</named-query>
+	<named-query name="OrderDetails.findByOrder_OrderByQuantity">
+		<query>SELECT o FROM OrderDetails o WHERE o.orders.id = :id ORDER BY o.quantity</query>
+	</named-query>
+		<named-query name="OrderDetails.findByOrder_OrderByUnitPrice">
+		<query>SELECT o FROM OrderDetails o WHERE o.orders.id = :id ORDER BY o.unitPrice</query>
+	</named-query>
+	<named-query name="OrderDetails.findByOrder_OrderByDiscount">
+		<query>SELECT o FROM OrderDetails o WHERE o.orders.id = :id ORDER BY o.discount</query>
+	</named-query>
+</entity-mappings>
